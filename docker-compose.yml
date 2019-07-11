@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+
+  # Albert Services
+  albert_ui:
+    build: ./albert_ui
+  albert_api:
+    build: ./albert_api
+  albert_db:
+    build: ./albert_db
+
+  # Boa Services
+  boa_ui:
+    build: ./boa_ui
+  boa_resource_api:
+    build: ./boa_resource_api
+  boa_resource_db:
+    build: ./boa_resource_db
+  boa_auth_api:
+    build: ./boa_auth_api
+  boa_auth_db:
+    build: ./boa_auth_db
