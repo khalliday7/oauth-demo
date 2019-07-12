@@ -9,6 +9,12 @@ services:
     build: ./albert_api
   albert_db:
     build: ./albert_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: albert_db
+      MYSQL_USER: albert
+      MYSQL_PASSWORD: password
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
 
   # Boa Services
   boa_ui:
