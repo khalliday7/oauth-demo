@@ -35,6 +35,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@hot-loader/react-dom": "^16.8.4",
+    "mem": "^4.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.5",
