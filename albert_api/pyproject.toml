@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "albert_api"
+version = "0.1.0"
+description = "Oauth Demo Albert API"
+authors = ["Kevin Halliday <halliday.kevin7@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+flask = "^1.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
