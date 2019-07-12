@@ -1,12 +1,47 @@
-version: '3.3'
+version: "3.6"
 
 services:
 
+  # Nginx
+  nginx:
+    restart: always
+    build: ./nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+      - "8080:8080"
+
   # Albert Services
   albert_ui:
-    build: ./albert_ui
+    restart: always
+    build:
+      context: ./albert_ui
+      target: development
+    depends_on:
+      - nginx
+      - albert_api
+    entrypoint:
+      - yarn
+      - start
+    volumes:
+      - ./albert_ui:/home/node/src
+      - /home/node/src/node_modules
   albert_api:
-    build: ./albert_api
+    build:
+      context: ./albert_api
+      target: development
+    restart: always
+    depends_on:
+      - nginx
+    environment:
+      FLASK_ENV: development
+    entrypoint:
+      - poetry
+      - run
+      - flask
+      - run
+      - --host=0.0.0.0
   albert_db:
     build: ./albert_db
     restart: always
